@@ -2,13 +2,9 @@
   "name": "acazia-react-native-boilerplate",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "jest-expo": "26.0.0",
-    "react-native-scripts": "1.13.1",
-    "react-test-renderer": "16.3.0-alpha.1"
-  },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
+    "checkdeps": "ncu --packageFile package.json",
     "start": "react-native-scripts start",
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
@@ -16,16 +12,75 @@
     "test": "jest"
   },
   "jest": {
+    "testMatch": [
+      "<rootDir>/Tests/**/*.js",
+      "**/?(*.)(spec|test).js?(x)"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/Tests/Setup.js"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy"
+    },
+    "setupFiles": [
+      "<rootDir>/Tests/Setup"
+    ],
     "preset": "jest-expo"
   },
+  "config": {},
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "describe",
+      "test",
+      "jest",
+      "expect",
+      "fetch",
+      "navigator",
+      "__DEV__",
+      "XMLHttpRequest",
+      "FormData",
+      "React$Element"
+    ]
+  },
   "dependencies": {
-    "expo": "^26.0.0",
-    "glamorous-native": "^1.3.0",
-    "lodash": "^4.17.5",
-    "moment": "^2.22.0",
-    "querystringify": "^1.0.0",
-    "react": "16.3.0-alpha.1",
-    "react-native": "0.54.0",
-    "recompose": "^0.26.0"
+    "apisauce": "^0.14.3",
+    "expo": "^27.0.1",
+    "formik": "^0.11.11",
+    "glamorous-native": "^1.4.0",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.1",
+    "querystringify": "^2.0.0",
+    "ramda": "^0.25.0",
+    "react": "16.3.2",
+    "react-native": "0.55.3",
+    "recompose": "^0.27.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/plugin-transform-react-jsx": "^7.0.0-beta.46",
+    "babel-plugin-dotenv-import": "^1.3.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-jest": "^23.0.0-alpha.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-native": "4.0.0",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "babel-preset-react-native-syntax": "^1.0.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "format-json": "^1.0.3",
+    "husky": "^0.14.3",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-expo": "27.0.1",
+    "mockery": "^2.1.0",
+    "react-native-scripts": "1.14.0",
+    "react-test-renderer": "16.3.2",
+    "snazzy": "^7.1.1",
+    "standard": "^11.0.1"
   }
 }
